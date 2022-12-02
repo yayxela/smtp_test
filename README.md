@@ -16,10 +16,10 @@ I created this repository so that everyone could test sending email templates (A
 * In request to server in `email_schema` pass your template variables
 
 ## EXAMPLE
-
+How to send email with saved template
 ```shell
 curl -X 'POST' \
-  'http://127.0.0.1:8000/email' \
+  'http://127.0.0.1:8000/saved' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
