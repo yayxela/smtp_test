@@ -1,5 +1,6 @@
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 from pathlib import Path
+from pydantic import EmailStr
 from schema import EmailSchema
 from settings import settings
 
@@ -32,6 +33,15 @@ class EmailService:
             message,
             template_name=template
         )
+
+    async def send_file(self, subject: str, email: EmailStr, body: str):
+        message = MessageSchema(
+            subject=subject,
+            recipients=[email],  # List of recipients, as many as you can pass
+            html=body,
+            subtype='html',
+        )
+        await self.fast_mail.send_message(message)
 
 
 service = EmailService()
