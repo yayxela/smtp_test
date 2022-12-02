@@ -25,9 +25,9 @@ curl -X 'POST' \
   -d '{
   "subject": "Test",
   "email_schema": {
-    "email": "test111@yayxela.xyz",
+    "email": "user@example.com",
     "body": {
-      "foo": "bar"
+      "message": "This is test template"
     }
   },
   "template": "test_template.html"
